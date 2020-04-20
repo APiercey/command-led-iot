@@ -6,19 +6,8 @@ defmodule MqttHandler do
   def terminate(_reason, _state), do: :ok
   def subscription(_status, _topic_filter, state), do: {:ok, state}
 
-  def handle_message(["home"], "luminosity=" <> luminosity, state) do
-    :ok =
-      %{
-        points: [
-          %{
-            measurement: "led",
-            fields: %{luminosity: luminosity}
-          }
-        ],
-        database: "devices"
-      }
-      |> Myhome.InstreamConnection.write()
-
+  def handle_message(["home", "led"], "luminosity=" <> luminosity, state) do
+    {:ok, _} = Myhome.ProjectLuminosity.call(luminosity)
     {:ok, state}
   end
 

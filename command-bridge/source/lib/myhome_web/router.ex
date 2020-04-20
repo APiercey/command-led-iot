@@ -24,6 +24,12 @@ defmodule MyhomeWeb.Router do
     end
   end
 
+  scope "/api", MyhomeWeb do
+    pipe_through :api
+
+    patch "/set_luminosity", LuminosityController, :update
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", MyhomeWeb do
   #   pipe_through :api
