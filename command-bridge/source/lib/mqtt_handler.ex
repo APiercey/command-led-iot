@@ -6,7 +6,7 @@ defmodule MqttHandler do
   def terminate(_reason, _state), do: :ok
   def subscription(_status, _topic_filter, state), do: {:ok, state}
 
-  def handle_message(["home", "led"], "luminosity=" <> luminosity, state) do
+  def handle_message(["data", "led"], "luminosity=" <> luminosity, state) do
     {:ok, _} = Myhome.ProjectLuminosity.call(luminosity)
     {:ok, state}
   end

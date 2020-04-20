@@ -1,5 +1,5 @@
 watch_home:
-	mosquitto_sub -h localhost -t "home"
+	mosquitto_sub -h localhost -t "data"
 
 watch_command:
 	mosquitto_sub -h localhost -t "command"

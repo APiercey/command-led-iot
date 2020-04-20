@@ -12,8 +12,6 @@ defmodule Myhome.Application do
   def start_supervisor do
     # List all child processes to be supervised
     children = [
-      # Start the Ecto repository
-      # Myhome.Repo,
       # Start the endpoint when the application starts
       MyhomeWeb.Endpoint,
       Myhome.InstreamConnection,
@@ -22,7 +20,7 @@ defmodule Myhome.Application do
          client_id: "myhome",
          server: {Tortoise.Transport.Tcp, host: "mosquitto", port: 1883},
          handler: {MqttHandler, []},
-         subscriptions: [{"home", 0}]
+         subscriptions: [{"data", 0}]
        ]}
       # Starts a worker by calling: Myhome.Worker.start_link(arg)
       # {Myhome.Worker, arg},
