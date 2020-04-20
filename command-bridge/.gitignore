@@ -1,3 +1,4 @@
 source/.elixir_ls
 source/_build
 source/erl_crash.dump
+source/deps
