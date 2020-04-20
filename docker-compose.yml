@@ -1,0 +1,52 @@
+version: '3.7'
+
+volumes:
+  grafana_data: {}
+  influxdb_data: {}
+  
+services: 
+  grafana:
+    image: grafana/grafana
+    depends_on:
+      - influxdb
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    env_file:
+      - ./grafana/config.monitoring
+
+  influxdb:
+    image: influxdb:1.7.10-alpine
+    ports:
+      - 8086:8086
+      - 8083:8083
+      - 8090:8090
+    volumes:
+      - influxdb_data:/var/lib/influxdb
+      - ./influxdb/:/etc/influxdb/
+
+  mosquitto:
+    image: eclipse-mosquitto
+    hostname: mosquitto
+    expose:
+      - "1883"
+      - "9001"
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+
+  command-bridge:
+    expose:
+      - "4000"
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mosquitto
+      - influxdb
+    build: ./command-bridge
+    volumes:
+      - ./command-bridge/source/:/app
