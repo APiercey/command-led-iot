@@ -50,5 +50,3 @@ services:
       - mosquitto
       - influxdb
     build: ./command-bridge
-    volumes:
-      - ./command-bridge/source/:/app
