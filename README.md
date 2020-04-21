@@ -26,5 +26,5 @@ Using the query:
 SELECT last(luminosity) FROM led
 ```
 
-I produced this graph:
+I produced this graph which shows that the lumonsity of the LED is at 10%:
 ![graph.png](graph.png)
