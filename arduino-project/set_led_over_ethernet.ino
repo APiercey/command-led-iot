@@ -5,7 +5,7 @@
 static const int LED_PIN = 9;
 static const char NODE_NAME[] = "test_node";
 static byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
-const char BROKER_ADDRESS[] = "161.35.27.166";
+const char BROKER_ADDRESS[] = "CHANGE.TO.YOUR.IP.ADDRESS";
 char COMMAND_TOPIC[] = "command";
 char PUBLISH_TOPIC[] = "data";
 static bool hasPublishedChanges = false;
