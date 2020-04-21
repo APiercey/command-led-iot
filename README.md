@@ -9,7 +9,7 @@ This project demonstrates a simple way to control the luminosity of an LED.
 ## The Project
 - [Command Bridge](https://github.com/APiercey/command-led-iot/tree/master/command-bridge): The custom Elixir application will push data into InfluxDB and issue commands to the device.
 - [Arduino Project](https://github.com/APiercey/command-led-iot/tree/master/arduino-project): The Arduino build. This includes ZIPed libraries needed for it to work.
-  - The project Relies on [ArduinoJSON](https://arduinojson.org/v6/doc/installation/) but wasn't included. The most recent version can be installed using the Arduino Library manager and I recommend taking this route.
+  - The project Relies on [ArduinoJSON](https://arduinojson.org/v6/doc/installation/) but wasn't included. The most recent version can be installed using the Arduino Library manager and I recommend taking this route. I've included the header file - which is version 6.15.1
   - MQTT library is ziped. Add it to the Arduino IDE.
 
 ## The Build
