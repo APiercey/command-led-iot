@@ -30,3 +30,7 @@ SELECT last(luminosity) FROM led
 
 I produced this graph which shows that the lumonsity of the LED is at 10%:
 ![graph.png](graph.png)
+
+## Subscribing to the MQTT Broker
+Make sure you are using the [correct address for your MQTT broker](https://github.com/APiercey/command-led-iot/blob/master/arduino-project/set_led_over_ethernet.ino#L8). This will eaither be ana IP address your network supplied for your computer - if the service is running locally - or the public IP if running "in the cloud" ;).
+
