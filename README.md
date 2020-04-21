@@ -1,5 +1,5 @@
 # Command LED IoT Project
-This project demonstrates a simple way to control the luminosity of an LED.
+This project demonstrates a simple way to control the luminosity of an LED using MQTT to issue commands and push data into a remote database.
 
 # Getting Started
 
