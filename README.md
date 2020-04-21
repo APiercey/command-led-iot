@@ -13,7 +13,17 @@ This project demonstrates a simple way to control the luminosity of an LED.
 # The Build
 The arduino will `analogWrite` to pin 9. Anode (long end) is hooked up to the pin. For the cathode, I used a 220 ohm resistor.
 
-For this projet, I used an (deprecated) Ardunio Ethernet shield because that was all I had! I'm 100% positive this can be done with any sort of shield used to connect the ardunio to the internet - you will just need a different library other than the Ethernet one.
+For this project, I used an (deprecated) Ardunio Ethernet shield because that was all I had! I'm 100% positive this can be done with any sort of shield used to connect the ardunio to the internet - you will just need a different library other than the Ethernet one.
 
 Here is a picture, quite simple:
 ![arduino_led.jpg](arduino_led.jpg)
+
+# Graphing the Data
+The project only records luminosity. The data will be stored into a InfluxDB named `devices` under the measurment `led`.
+
+Using the query:
+```
+SELECT last(luminosity) FROM led
+```
+
+I produced this graph:
