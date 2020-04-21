@@ -10,11 +10,14 @@ WORKDIR /app
 
 COPY source/ /app
 
-RUN mix do deps.get, deps.compile 
+RUN mix deps.get
+RUN mix deps.compile 
+
 RUN cd assets && \
     npm install && \
     node node_modules/webpack/bin/webpack.js --mode development
-RUN mix do compile, phx.digest
+RUN mix compile
+RUN mix phx.digest
 
 
 CMD mix phx.server
