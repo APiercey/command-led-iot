@@ -27,3 +27,4 @@ SELECT last(luminosity) FROM led
 ```
 
 I produced this graph:
+![graph.pnh](graph.pnh)
